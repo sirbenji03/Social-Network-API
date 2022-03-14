@@ -3,7 +3,6 @@ const moment = require('moment');
 
 const ReactionSchema = new Schema(
     {
-      // set custom id to avoid confusion with parent comment _id
       reactionId: {
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId()
@@ -64,7 +63,7 @@ const ThoughtSchema = new Schema (
 
 const Thought = model('Thought', ThoughtSchema);
 
-  // get total count of friends on retrieval
+
   ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
   });
